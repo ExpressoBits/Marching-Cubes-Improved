@@ -74,7 +74,7 @@ public class Chunk : MonoBehaviour
         Mesh mesh = CreateMeshWithJobs();
 
         _meshFilter.sharedMesh = mesh;
-        //_meshCollider.sharedMesh = mesh;
+        _meshCollider.sharedMesh = mesh;
     }
 
     Mesh CreateMeshWithJobs()
@@ -90,7 +90,7 @@ public class Chunk : MonoBehaviour
         NativeArray<Vector3> vertices = new NativeArray<Vector3>(vertexCount, Allocator.TempJob);
         NativeArray<int> triangles = new NativeArray<int>(vertexCount, Allocator.TempJob);
 
-        MarchingCubesJob job = new MarchingCubesJob()
+        MarchingCubesJob job = new MarchingCubesJob
         {
             // Inputs
             points = points,
